@@ -3,9 +3,6 @@ import tensorflow as tf
 from tqdm import tqdm
 import pandas as pd
 import warnings
-from sklearn.metrics import precision_recall_fscore_support
-from sklearn.ensemble import GradientBoostingClassifier
-from sklearn.metrics import accuracy_score
 
 warnings.filterwarnings("ignore")
 
@@ -521,16 +518,4 @@ for num in miss_val_list[:]:
         
     imputed_data_all = imputed_data_all_new/num_it
 
-    n_new = n_new + 1
-    clf = GradientBoostingClassifier(n_estimators=200, random_state=42)
-    clf.fit(X_train, y_train)
-    for num_i in range(0, no):            
-        pre_y_test = clf.predict(imputed_data_all[int(num_i*num_p):int(num_i*num_p+num_p),:])
-        calculate_report = precision_recall_fscore_support(y_test_new[int(num_i*num_p):int(num_i*num_p+num_p)], pre_y_test, average = 'weighted')
-        fscore = round(calculate_report[2], 3) 
-        accuracy = accuracy_score(y_test_new[int(num_i*num_p):int(num_i*num_p+num_p)], pre_y_test)
-        fscore_new[n_new-1,num_i] = fscore
-        accuracy_new[n_new-1,num_i] = accuracy           
-            
-print(np.mean(fscore_new[:,0:no], axis = 1))
  

@@ -517,5 +517,4 @@ for num in miss_val_list[:]:
         imputed_data_all_new = imputed_data_all_new + imputed_data_all
         
     imputed_data_all = imputed_data_all_new/num_it
-
- 
+    np.save("imputed_data_win_size_"+str(num)+".npy",imputed_data_all) 

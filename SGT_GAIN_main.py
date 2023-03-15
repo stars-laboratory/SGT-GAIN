@@ -411,9 +411,7 @@ for num in miss_val_list[:]:
       D_logit = tf.matmul(D_h2, D_W3) + D_b3
       D_prob = tf.nn.sigmoid(D_logit)
       return D_prob
-
-#    G_sample, G_sample2, X_new, M_new, Hat_X, H_new, X_new2, M_new2, Hat_X2, H_new2, Sam_new, Sam_new2, sam_order, sam_order2 = generator(X, X2, M, H)
-
+    
     G_sample, G_sample2 = generator(X, X2, M, H)
     
     Sam_new, sam_order = filter_layer(G_sample, X, M, delta)

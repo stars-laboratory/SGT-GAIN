@@ -7,9 +7,13 @@ Transformer-enabled GAIN with selective generation (SGT-GAIN) is proposed to add
 ### Code dependencies
 
 python=3.7.4
+
 numpy=1.16.1
+
 pandas=0.25.1
+
 tensorflow=1.13.1
+
 sklearn=1.0
 
 ### Basic experiment
